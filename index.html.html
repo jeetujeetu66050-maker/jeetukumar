@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body{
+			background-color: rgba(0, 0, 20, 2);
+			justify-content: center ;
+			align-items: center ;
+			display:flex;
+			color: white;
+			height: 100vh;
+		}
+		.box{
+			background-color: black;
+			padding: 10px;
+			width: 275px;
+			border-radius:10px;
+			box-shadow: 0 0  10px cyan;
+			animation: zoom 2s infinite alternate ;
+		}
+@keyframes zoom{
+	from{transform: scale(1);}
+	to{transform: scale(1.04);
+	} 
+	 }
+input{
+	width: 100%;
+	height:50px;
+	margin-bottom: 6px;
+	border-radius: 15px;
+	border:none;
+	font-size: 25px ;
+	text-align: right;
+}
+.answer{
+    background-color:#e5e7eb;
+    font-width:bolder;
+}
+button{
+	margin-bottom: 10px;
+	width:50px;
+	font-size: 32px;
+	height: 50px;
+	display:inline;
+	margin-left:12px;
+	border-radius: 10px;
+}
+</style>
+	<title>advance calculator</title>
+</head>
+<body>
+	<div class="box">
+		<input type="text" id="screen" readonly class="display"placeholder="Enter"><br>
+		<input type="text" readonly  placeholder="Answer" id="answer"><br><br>
+        <button style="background-color: orange;" onclick="back()">❌</button>
+        <button style="background-color: red; color: white;" onclick="clr()">C</button>
+        <button style="background-color: skyblue;" onclick="add('/')">/</button>
+        <button style="background-color: skyblue;" onclick="add('*')">*</button>
+        <button  onclick="add(7)">7</button>
+        <button onclick="add(8)" >8</button>
+        <button  onclick="add(9)">9</button>
+        <button  onclick="add('-')"style="background-color: skyblue;">-</button>
+        <button  onclick="add(4)">4</button>
+        <button  onclick="add(5)">5</button>
+        <button  onclick="add(6)">6</button>
+        <button onclick="add('+')"style="background-color:skyblue;">+</button>
+        <button  onclick="add(1)">1</button>
+        <button  onclick="add(2)">2</button>
+        <button  onclick="add(3)">3</button>
+        <button  onclick="add(0)">0</button>
+        <button onclick="add('.')" >.</button>
+        <button style="width:180px; background-color:green;" onclick="calc()">=</button>
+	</div>
+<script>
+
+     let screen = document.getElementById("screen");
+
+     let answer = document.getElementById("answer");
+
+   function add(a){
+        screen.value = screen.value + a;
+}
+   function clr(){
+        screen.value = "";
+        answer.value = "";
+}
+   function back(){
+        screen.value = screen.value.slice(0,-1 );
+}
+   function calc(){
+      answer.value = eval(screen.value);
+}
+</script>
+</body>
+</html>
